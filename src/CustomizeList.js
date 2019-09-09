@@ -14,6 +14,7 @@ export default function CustomizeList(props) {
           key={itemHash}
           itemHash={itemHash}
           feature={feature}
+          formatUS={props.formatUS}
           {...item}
           selected={props.selected}
           updateFeature={props.updateFeature}

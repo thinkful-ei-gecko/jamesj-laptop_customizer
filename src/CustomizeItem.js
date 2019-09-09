@@ -3,7 +3,7 @@ import slugify from 'slugify';
 
 export default function CustomizeItem(props) { 
   console.log('CustomizeItem props are:',props)
-  console.log('what am i', props.selected)
+  console.log('what am i', props.itemHash)
   return (
   <div key={props.itemHash} className="feature__item">
     <input
@@ -15,7 +15,7 @@ export default function CustomizeItem(props) {
       onChange={e => props.updateFeature(props.name, props)}
     />
     <label htmlFor={props.itemHash} className="feature__label">
-      {props.name} ({props.USCurrencyFormat.format(props.cost)})
+      {props.name} ({props.formatUS.format(props.cost)})
     </label>
   </div>
 )}
