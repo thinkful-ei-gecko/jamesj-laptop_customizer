@@ -122,7 +122,8 @@ class App extends Component {
             <CustomizeList 
               features={this.state.features} 
               formatUS={USCurrencyFormat}
-              selected={this.state.selected}/>
+              selected={this.state.selected}
+              updateFeature={(feature, newValue) => this.updateFeature(feature, newValue)}/>
           </form>
           <section className="main__summary">
             <h2>Your cart</h2>
