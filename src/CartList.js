@@ -1,5 +1,6 @@
 import React from 'react'
 import CartItem from './CartItem'
+import './CartList.css'
 
 export default function CartList(props) {
   const total = Object.keys(props.selected).reduce(

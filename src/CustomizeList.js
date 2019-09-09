@@ -1,6 +1,7 @@
 import React from 'react'
 import slugify from 'slugify'
 import CustomizeItem from './CustomizeItem'
+import './CustomizeList.css'
 
 export default function CustomizeList(props) {
   return Object.keys(props.features).map((feature, idx) => {
