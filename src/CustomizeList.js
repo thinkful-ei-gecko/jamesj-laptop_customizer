@@ -7,14 +7,14 @@ export default function CustomizeList(props) {
     const featureHash = feature + '-' + idx
     const options = props.features[feature].map(item => {
       const itemHash = slugify(JSON.stringify(item))
-      console.log('CustomizeList props are:', props)
-      console.log('the item hash:', itemHash)
+
       return (
         <CustomizeItem
           key={itemHash}
           itemHash={itemHash}
           feature={feature}
           formatUS={props.formatUS}
+          item={item}
           {...item}
           selected={props.selected}
           updateFeature={props.updateFeature}
