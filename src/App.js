@@ -14,6 +14,10 @@ const USCurrencyFormat = new Intl.NumberFormat('en-US', {
 });
 
 class App extends Component {
+  static defaultProps = {
+    features: []
+  };
+
   state = {
     selected: {
       Processor: {
