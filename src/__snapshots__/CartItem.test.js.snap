@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CartItem component renders same UI 1`] = `
+<div
+  className="summary__option"
+  key="foo"
+>
+  <div
+    className="summary__option__label"
+  >
+    foo
+     
+  </div>
+  <div
+    className="summary__option__value"
+  >
+    17th Generation Intel Core HB (7 Core with donut spare)
+  </div>
+  <div
+    className="summary__option__cost"
+  >
+    $700.00
+  </div>
+</div>
+`;

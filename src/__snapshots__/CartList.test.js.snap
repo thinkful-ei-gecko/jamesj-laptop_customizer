@@ -1,0 +1,42 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CartList component renders same UI 1`] = `
+<Fragment>
+  <CartItem
+    feature="Processor"
+    formatUS={NumberFormat {}}
+    key="Processor-0"
+    selectedOption={
+      Object {
+        "cost": 700,
+        "name": "17th Generation Intel Core HB (7 Core with donut spare)",
+      }
+    }
+  />
+  <CartItem
+    feature="Operating System"
+    formatUS={NumberFormat {}}
+    key="Operating System-1"
+    selectedOption={
+      Object {
+        "cost": 200,
+        "name": "Ubuntu Linux 16.04",
+      }
+    }
+  />
+  <div
+    className="summary__total"
+  >
+    <div
+      className="summary__total__label"
+    >
+      Total
+    </div>
+    <div
+      className="summary__total__value"
+    >
+      $900.00
+    </div>
+  </div>
+</Fragment>
+`;
