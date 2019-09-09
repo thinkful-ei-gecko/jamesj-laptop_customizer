@@ -14,30 +14,77 @@ const USCurrencyFormat = new Intl.NumberFormat('en-US', {
 });
 
 class App extends Component {
+
+  constructor() {
+    super();
+    this.state = {
+      features: {
+        Processor: [
+          {
+            name: '17th Generation Intel Core HB (7 Core with donut spare)',
+            cost: 700
+          },
+          {
+            name: 'Professor X AMD Fire Breather with sidewinder technology',
+            cost: 1200
+          }
+        ],
+        "Operating System": [
+          {
+            name: 'Ubuntu Linux 16.04',
+            cost: 200
+          },
+          {
+            name: 'Bodhi Linux',
+            cost: 300
+          }
+        ],
+        "Video Card": [
+          {
+            name: 'Toyota Corolla 1.5v',
+            cost: 1150.98
+          },
+          {
+            name: 'Mind mild breeze 2000',
+            cost: 1345
+          }
+        ],
+        Display: [
+          {
+            name: '15.6" UHD (3840 x 2160) 60Hz Bright Lights and Knobs',
+            cost: 1500
+          },
+          {
+            name: '15.3" HGTV (3840 x 2160) Home makeover edition',
+            cost: 1400
+          },
+        ],
+      },
+      selected: {
+        Processor: {
+          name: '17th Generation Intel Core HB (7 Core with donut spare)',
+          cost: 700
+        },
+        'Operating System': {
+          name: 'Ubuntu Linux 16.04',
+          cost: 200
+        },
+        'Video Card': {
+          name: 'Toyota Corolla 1.5v',
+          cost: 1150.98
+        },
+        Display: {
+          name: '15.6" UHD (3840 x 2160) 60Hz Bright Lights and Knobs',
+          cost: 1500
+        }
+      }
+    }
+  }
   static defaultProps = {
     features: []
   };
 
-  state = {
-    selected: {
-      Processor: {
-        name: '17th Generation Intel Core HB (7 Core with donut spare)',
-        cost: 700
-      },
-      'Operating System': {
-        name: 'Ubuntu Linux 16.04',
-        cost: 200
-      },
-      'Video Card': {
-        name: 'Toyota Corolla 1.5v',
-        cost: 1150.98
-      },
-      Display: {
-        name: '15.6" UHD (3840 x 2160) 60Hz Bright Lights and Knobs',
-        cost: 1500
-      }
-    }
-  };
+  
 
   updateFeature = (feature, newValue) => {
     const selected = Object.assign({}, this.state.selected);
@@ -48,9 +95,9 @@ class App extends Component {
   };
 
   render() {
-    const features = Object.keys(this.props.features).map((feature, idx) => {
+    const features = Object.keys(this.state.features).map((feature, idx) => {
       const featureHash = feature + '-' + idx;
-      const options = this.props.features[feature].map(item => {
+      const options = this.state.features[feature].map(item => {
         const itemHash = slugify(JSON.stringify(item));
         return (
           <div key={itemHash} className="feature__item">
