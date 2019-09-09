@@ -2,9 +2,6 @@ import React from 'react';
 import slugify from 'slugify';
 
 export default function CustomizeItem(props) { 
-  console.log(props.name)
-  console.log(props.feature)
-  console.log(props)
   return (
   <div key={props.itemHash} className="feature__item">
     <input

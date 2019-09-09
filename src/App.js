@@ -1,116 +1,95 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 
 // Normalizes string as a slug - a string that is safe to use
 // in both URLs and html attributes
 
-import './App.css';
-import CustomizeList from './CustomizeList';
+import './App.css'
+import CustomizeList from './CustomizeList'
+import CartList from './CartList'
 
 // This object will allow us to
 // easily convert numbers into US dollar values
 const USCurrencyFormat = new Intl.NumberFormat('en-US', {
   style: 'currency',
-  currency: 'USD'
-});
+  currency: 'USD',
+})
 
 class App extends Component {
-
   constructor() {
-    super();
+    super()
     this.state = {
       features: {
         Processor: [
           {
             name: '17th Generation Intel Core HB (7 Core with donut spare)',
-            cost: 700
+            cost: 700,
           },
           {
             name: 'Professor X AMD Fire Breather with sidewinder technology',
-            cost: 1200
-          }
+            cost: 1200,
+          },
         ],
-        "Operating System": [
+        'Operating System': [
           {
             name: 'Ubuntu Linux 16.04',
-            cost: 200
+            cost: 200,
           },
           {
             name: 'Bodhi Linux',
-            cost: 300
-          }
+            cost: 300,
+          },
         ],
-        "Video Card": [
+        'Video Card': [
           {
             name: 'Toyota Corolla 1.5v',
-            cost: 1150.98
+            cost: 1150.98,
           },
           {
             name: 'Mind mild breeze 2000',
-            cost: 1345
-          }
+            cost: 1345,
+          },
         ],
         Display: [
           {
             name: '15.6" UHD (3840 x 2160) 60Hz Bright Lights and Knobs',
-            cost: 1500
+            cost: 1500,
           },
           {
             name: '15.3" HGTV (3840 x 2160) Home makeover edition',
-            cost: 1400
+            cost: 1400,
           },
         ],
       },
       selected: {
         Processor: {
           name: '17th Generation Intel Core HB (7 Core with donut spare)',
-          cost: 700
+          cost: 700,
         },
         'Operating System': {
           name: 'Ubuntu Linux 16.04',
-          cost: 200
+          cost: 200,
         },
         'Video Card': {
           name: 'Toyota Corolla 1.5v',
-          cost: 1150.98
+          cost: 1150.98,
         },
         Display: {
           name: '15.6" UHD (3840 x 2160) 60Hz Bright Lights and Knobs',
-          cost: 1500
-        }
-      }
+          cost: 1500,
+        },
+      },
     }
   }
 
   updateFeature = (feature, newValue) => {
-    const selected = Object.assign({}, this.state.selected);
-    selected[feature] = newValue;
+    const selected = Object.assign({}, this.state.selected)
+    selected[feature] = newValue
     this.setState({
-      selected
-    });
-  };
+      selected,
+    })
+  }
 
   render() {
-
-    const summary = Object.keys(this.state.selected).map((feature, idx) => {
-      const featureHash = feature + '-' + idx;
-      const selectedOption = this.state.selected[feature];
-
-      return (
-        <div className="summary__option" key={featureHash}>
-          <div className="summary__option__label">{feature} </div>
-          <div className="summary__option__value">{selectedOption.name}</div>
-          <div className="summary__option__cost">
-            {USCurrencyFormat.format(selectedOption.cost)}
-          </div>
-        </div>
-      );
-    });
-
-    const total = Object.keys(this.state.selected).reduce(
-      (acc, curr) => acc + this.state.selected[curr].cost,
-      0
-    );
-
     return (
       <div className="App">
         <header>
@@ -119,26 +98,26 @@ class App extends Component {
         <main>
           <form className="main__form">
             <h2>Customize your laptop</h2>
-            <CustomizeList 
-              features={this.state.features} 
+            <CustomizeList
+              features={this.state.features}
               formatUS={USCurrencyFormat}
               selected={this.state.selected}
-              updateFeature={(feature, newValue) => this.updateFeature(feature, newValue)}/>
+              updateFeature={(feature, newValue) =>
+                this.updateFeature(feature, newValue)
+              }
+            />
           </form>
           <section className="main__summary">
             <h2>Your cart</h2>
-            {summary}
-            <div className="summary__total">
-              <div className="summary__total__label">Total</div>
-              <div className="summary__total__value">
-                {USCurrencyFormat.format(total)}
-              </div>
-            </div>
+            <CartList
+              formatUS={USCurrencyFormat}
+              selected={this.state.selected}
+            />
           </section>
         </main>
       </div>
-    );
+    )
   }
 }
 
-export default App;
+export default App
