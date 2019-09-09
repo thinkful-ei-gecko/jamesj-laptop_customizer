@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CustomizeItem component renders same UI 1`] = `
+<div
+  className="feature__item"
+  key="{itemHash}"
+>
+  <input
+    checked={true}
+    className="feature__option"
+    id="{itemHash}"
+    name="Processor"
+    onChange={[Function]}
+    type="radio"
+  />
+  <label
+    className="feature__label"
+    htmlFor="{itemHash}"
+  >
+    17th Generation Intel Core HB (7 Core with donut spare)
+     (
+    $700.00
+    )
+  </label>
+</div>
+`;
